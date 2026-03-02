@@ -1,4 +1,4 @@
-package leetcode.medium;
+package leetcode.two_pointers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ public class RemoveNthNodeLL {
         }
     }
 
-    public static ListNode removeNthFromEnd(ListNode head, int n) {
+    public static ListNode removeNthFromEnd(ListNode head, int n, boolean usesList) {
         /*
         * Create a method that removes the n-th element from a LL from right to left
         * This approach was using a List and indexing
@@ -48,6 +48,39 @@ public class RemoveNthNodeLL {
 
         return head;
     }
+
+
+    public static ListNode removeNthFromEnd(ListNode head, int n) {
+        /*
+        * Approach using Fast and Slow pointers
+        * */
+        // Define our two pointers
+        ListNode slow = head;
+        ListNode fast = head;
+
+        // Set the fast pointer at the node number head + n
+        for (int i = 0; i < n; i++) {
+            fast = fast.next;
+        }
+        // If fast is already null, means that's n == LL.length
+        if (fast == null) {
+            return head.next;
+        }
+
+        // Start the whole movement, moving both pointers at the speed of 1.
+        while (fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+
+        // Remove the element
+        ListNode temp = slow.next;
+        slow.next = temp.next;
+        temp.next = null;
+
+        return head;
+    }
+
 
     public static class ListNode {
         public int val;
