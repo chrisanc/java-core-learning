@@ -8,7 +8,7 @@ public class Fibonacci {
         // Write a program that prints the N-th number of the Fibonacci
         // sequence with and without DP
         //System.out.println("Normal recursion: " + fibo(45));
-        System.out.println("Dynamic Programming: " + fibo(120, new HashMap<>()));
+        System.out.println("Dynamic Programming: " + fibo(45, new HashMap<>()));
     }
 
     public static int fibo(int n) {
