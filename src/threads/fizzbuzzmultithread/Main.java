@@ -1,10 +1,8 @@
-package threads;
-
-import java.util.function.IntConsumer;
+package threads.fizzbuzzmultithread;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        int n = 5;
+        int n = 15;
         FizzBuzzMultithread fb = new FizzBuzzMultithread(n);
 
         Thread fizz = new Thread(() -> {
